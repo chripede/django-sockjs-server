@@ -39,12 +39,7 @@ class SockJSConnection(sockjs.tornado.SockJSConnection):
         client = self
         now = datetime.datetime.utcnow()
         seconds = time.mktime(now.timetuple()) + now.microsecond / 1e6
-        connection_id = hashlib.md5(
-            "%s %s" % (
-                seconds,
-                id(client)
-            )
-        ).hexdigest()
+        connection_id = hashlib.md5("{} {}".format(seconds, id(client)).encode()).hexdigest()
         return connection_id
 
 class StatsHandler(RequestHandler):
