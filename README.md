@@ -1,6 +1,6 @@
 # Django SockJS-server 
 
-Simple sockjs server for django.
+Simple sockjs server for django. Includes Python 3 fixes
 
 ## Requirements:
 
