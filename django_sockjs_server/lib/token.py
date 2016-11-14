@@ -7,7 +7,7 @@ class Token(object):
 
     def get_secret_data(self, data):
         token = self.config.secret_key + data
-        return "%s" % md5(token).hexdigest()
+        return "%s" % md5(token.encode()).hexdigest()
 
     def get_data(self, token, data):
         if token == self.get_secret_data(data):
