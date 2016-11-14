@@ -99,7 +99,7 @@ class SockjsServer(object):
         self.connect()
 
     def notify_listeners(self, event_json):
-        event_obj = json.loads(event_json)
+        event_obj = json.loads(event_json.decode())
 
         self.logger.debug('django-sockjs-server(SockjsServer): send message %s ' % event_obj)
         try:
