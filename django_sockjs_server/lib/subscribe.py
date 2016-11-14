@@ -10,7 +10,7 @@ from django_sockjs_server.lib.redis_client import redis_client
 class Subscribe(object):
 
     def __init__(self, connection):
-        u'''
+        '''
             connection: django_sockjs_server.lib.sockjs_handler.SockJSConnection
         '''
         self.conn = connection

@@ -133,7 +133,7 @@ class SockjsServer(object):
             client = self.connection_dict[conn_id]
             self.subscription_dict[conn_id].add(room)
             self.logger.debug('django-sockjs-server(SockjsServer): listener %s add to room %s' % (repr(client), room))
-        except KeyError, exc:
+        except KeyError as exc:
             pass
 
 
@@ -144,17 +144,17 @@ class SockjsServer(object):
             del self.connection_dict[conn_id]
             self.logger.debug('django-sockjs-server(SockjsServer): listener %s del connection %s' % (repr(client),
                               conn_id))
-        except KeyError, exc:
+        except KeyError as exc:
             pass
 
     def get_event_listeners_count(self):
         return self.event_listeners_count
 
     def get_subscribe_connection_count(self):
-        return len(self.connection_dict.keys())
+        return len(list(self.connection_dict.keys()))
 
     def get_subscribe_connections(self):
-        return self.connection_dict.keys()
+        return list(self.connection_dict.keys())
 
     def get_last_reconnect(self):
         return self.last_reconnect
