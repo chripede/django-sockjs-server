@@ -85,7 +85,7 @@ class SockJsServerClient(object):
         res = []
         for i in connections:
             try:
-                res.append(json.loads(i))
+                res.append(json.loads(i).decode())
             except ValueError:
                 pass
         return res
